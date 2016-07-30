@@ -1,0 +1,26 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home Page temporary pointing to Posts Controller
+GET     /                           controllers.ApplicationController.index
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+# Home page
+GET		/							controllers.ApplicationController.index
+GET		/cleanup					controllers.ApplicationController.cleanup
+
+# Posts
+GET		/api/posts 					controllers.PostController.index
+GET		/api/post/:id 				controllers.PostController.read(id: String)
+POST 	/api/post 					controllers.PostController.create
+DELETE 	/api/post/:id 				controllers.PostController.delete(id: String)
+PATCH 	/api/post/:id 				controllers.PostController.update(id: String)
+
+# Ads
+GET		/api/ads 					controllers.PostController.index
+GET		/api/ad/:id 				controllers.PostController.read(id: String)
+POST 	/api/ad 					controllers.AdController.create
+DELETE 	/api/ad/:id 				controllers.AdController.delete(id: String)
+PATCH 	/api/ad/:id 				controllers.AdController.update(id: String)
