@@ -11,18 +11,31 @@ import reactivemongo.bson.{BSONDocument, BSONObjectID}
 class PostController @Inject() (val reactiveMongoApi: ReactiveMongoApi) extends Controller 
   with MongoController with ReactiveMongoComponents {
   
-    def postRepo = new PostRepoImpl(reactiveMongoApi)
-    
-  	def index = Action.async { 
-      implicit request => postRepo.find().map(posts => Ok(Json.toJson(posts)))
-    }
+  import controllers.PostFields._
+   
+  def postRepo = new PostRepoImpl(reactiveMongoApi)
   
-  	def create = TODO
-  
-  	def read(id: String) = Action.async { 
-      implicit request => postRepo.select(BSONDocument(Id -> BSONObjectID(id))).map()(post => Ok(Json.toJson(post))) }
-  
-  	def update(id: String) = TODO
-  
-  	def delete(id: String) = TODO
+	def index = Action.async { 
+    implicit request => postRepo.find().map(posts => Ok(Json.toJson(posts)))
+  }
+
+	def create = TODO
+
+	def read(id: String) = Action.async { 
+    implicit request => postRepo.select(BSONDocument(Id -> BSONObjectID(id))).map(post => Ok(Json.toJson(post))) }
+
+	def update(id: String) = TODO
+
+	def delete(id: String) = TODO
+}
+
+object PostFields {
+  val Id = "_id"
+  val Name = "name"
+  val Description = "description"
+  val Owner = "owner"
+  val FullAddress = "fullAddress"
+  val SimplifiedAddress = "simplifiedAddress"
+  val Telephone = "telephone"
+  val LatLong = "latLong"
 }
