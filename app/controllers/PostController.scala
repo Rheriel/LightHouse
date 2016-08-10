@@ -72,3 +72,16 @@ object PostFields {
   val Telephone = "telephone"
   val LatLong = "latLong"
 }
+
+/*
+{
+  "id" , 1
+  "name" , "HalfMind HQ"
+  "description" , "HalfMind first HQ, also known as 'Casa de Ban'."
+  "owner" , "Ban"
+  "fullAddress" , "Navío #4655, Esq. Boyero, Torre I, Interior 1. La Calma, Zapopan, Jalisco, México."
+  "simplifiedAddress" , "Navío #4655 - I-1"
+  "telephone" , "3318620935"
+  "latLong", "20.635025, -103.411275"
+}
+*/
